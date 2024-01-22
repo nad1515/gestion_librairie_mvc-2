@@ -1,0 +1,15 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+.admin-badge {
+    background-color: #d896e9; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border-radius: 50%; /* Pour créer une forme de bulle ronde */
+    padding: 8px 15px; /* Ajustez les valeurs de padding selon vos préférences */
+    margin-right: 10px; /* Marge à droite pour l'espacement avec d'autres éléments */
+    font-weight: bold; /* Pour mettre en gras le texte */
+    display: inline-block; /* Permet au badge d'occuper seulement l'espace nécessaire */
+}
