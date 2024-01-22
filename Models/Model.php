@@ -151,7 +151,7 @@ public function get_modifier_livre()
 // ............la mise a jours livres............................
 
 public function get_update_livre()
-{ echo "bonsoir";
+{ 
      try { 
         
         $requete = $this->bd->prepare("UPDATE livres SET ISBN = :i, Titre_livre = :t, Theme_livre = :th, Nbr_pages_livre = :nb, Format_livre = :f, Nom_auteur = :n, Prenom_auteur = :p, Editeur = :e, Annee_edition = :a, Prix_vente = :px, Langue_livre = :l WHERE Id_Livre = :id" );
@@ -409,6 +409,31 @@ public function get_all_commandes_admin()
      $requete = $this->bd->prepare('SELECT L.Titre_livre, F.Raison_sociale,C.id_commande, C.Date_achat, C.Prix_achat, C.Nbr_exemplaires FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur');
        
         $requete->execute();
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+}
+public function get_modifier_commande()
+{    $id=$_GET['id'];
+    try {
+     $requete = $this->bd->prepare('SELECT L.Titre_livre, F.Raison_sociale,C.id_commande, C.Date_achat, C.Prix_achat, C.Nbr_exemplaires FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur WHERE id_commande=:c');
+       
+        $requete->execute(array(':c'=>$id));
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+}
+// .............update sur table commande...............
+public function get_update_commande()
+{   
+    try {
+     $requete = $this->bd->prepare('SELECT L.Titre_livre, F.Raison_sociale, C.Date_achat, C.Prix_achat, C.Nbr_exemplaires FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur WHERE id_commande=:c');
+       
+        $requete->execute(array(':c'=>$id));
         
     } catch (PDOException $e) {
         die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');

@@ -79,5 +79,21 @@ public function action_all_commandes_admin()
     $this->render("all_commandes_admin",$data);
 
 }
-    
+// ..................modifier commande par l'admin................
+public function action_modifier_commande()
+{
+    $m=Model::get_model();
+    $data=['commandes'=>$m->get_modifier_commande()];
+    $this->render("modifier_commande",$data);
+
+}
+//..............update sur la table commande..............
+public function action_update_commande()
+{
+    $m=Model::get_model();
+    $data=['commandes'=>$m->get_update_commande()];
+    $this->render("all_commande_admin",$data);
+
+}
+     
 }
