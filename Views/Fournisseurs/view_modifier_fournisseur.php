@@ -1,42 +1,45 @@
 
 
-  
-     <h1 class= "mt-5 text-center"> Mettre a jours les données de la table Fournisseurs</h>
- <form action="?controller=fournisseurs&action=update_fournisseur" method="POST">
-  <div class="form-group">
-  <label>Code_fournisseur: <input class="form-control"  type="text" id="code" name="code" value="<?=$fournisseurs[0]->Code_fournisseur?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Raison_sociale: <input  class="form-control" type="text" id="raison" name="raison" value="<?=$fournisseurs[0]->Raison_sociale?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Rue_fournisseur: <input  class="form-control" type="text" id="rue" name="rue" value="<?=$fournisseurs[0]->Rue_fournisseur?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Code_postal: <input  class="form-control" type="text" id="codep" name="codep" value="<?=$fournisseurs[0]->Code_postal?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Localite: <input  class="form-control" type="text" id="localite" name="localite" value="<?=$fournisseurs[0]->Localite?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Pays: <input class="form-control"  type="text" id="pays" name="pays" value="<?=$fournisseurs[0]->Pays?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Tel_fournisseur: <input  class="form-control" type="text" id="tel" name="tel" value="<?=$fournisseurs[0]->Tel_fournisseur?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Url_fournisseur: <input  class="form-control" type="text" id="url" name="url" value="<?=$fournisseurs[0]->Url_fournisseur?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Email_fournisseur: <input class="form-control"  type="text" id="email" name="email" value="<?=$fournisseurs[0]->Email_fournisseur?>"></label>
-  </div>
-  <div class="form-group">
-  <label>Fax_fournisseur: <input class="form-control"  type="text" id="fax" name="fax" value="<?=$fournisseurs[0]->Fax_fournisseur?>"></label>
-  </div>
-   <input type="hidden" id="hide" name="hide" value="<?=$fournisseurs[0]->Id_fournisseur?>">
+ 
+<div class="w-75 mx-auto mb-3">  
+     <h1 class= "mt-5 text-center"> Mettre a jours les données de la table Fournisseur</h1>
 
-  <div class="form-group">
-  <button type="submit" class="btn btn-primary mb-5" >Update</button>
+<form action="?controller=fournisseurs&action=update_fournisseur" method="POST">
+ <div class="form-group">
+    <label>Code_fournisseur:<input type="text" class="form-control" name="isbn" id="isbn" value="<?=$fournisseurs[0]->Code_fournisseur?>" required></label>
+ </div>
+ <div class="form-group">
+   <label>Raison_sociale:<input type="text" class="form-control" name="titre" id="titre" value="<?=$fournisseurs[0]->Raison_sociale?>" required></label>
+   </div> 
+   <div class="form-group">
+    <label>Rue_fournisseur: <input type="text" class="form-control" name="theme" id="theme" value="<?=$fournisseurs[0]->Rue_fournisseur?>" required></label>
+    </div> 
+    <div class="form-group">
+    <label>Code_postal:<input type="text" class="form-control" name="format" id="format" value="<?=$fournisseurs[0]->Code_postal?>" required></label> 
+    </div> 
+    <div class="form-group">
+     <label>Localite:<input type="text" class="form-control" name="nom" id="nom" value="<?=$fournisseurs[0]->Localite?>" required></label>  
+     </div> 
+     <div class="form-group">
+    <label>Pays:<input type="text" class="form-control" name="isbn" id="isbn" value="<?=$fournisseurs[0]->Pays?>" required></label>
+ </div>
+ <div class="form-group">
+   <label>Tel_fournisseur:<input type="text" class="form-control" name="titre" id="titre" value="<?=$fournisseurs[0]->Tel_fournisseur?>" required></label>
+   </div> 
+   <div class="form-group">
+    <label>Url_fournisseur: <input type="text" class="form-control" name="theme" id="theme" value="<?=$fournisseurs[0]->Url_fournisseur?>" required></label>
+    </div> 
+    <div class="form-group">
+    <label>Email_fournisseur:<input type="text" class="form-control" name="format" id="format" value="<?=$fournisseurs[0]->Email_fournisseur?>" required></label> 
+    </div> 
+    <div class="form-group">
+     <label>ax_fournisseur:<input type="text" class="form-control" name="nom" id="nom" value="<?=$fournisseurs[0]->ax_fournisseur?>" required></label>  
+     </div> 
+     <input type="hidden" id="hide" name="hide" value="<?=$fournisseurs[0]->Id_fournisseur?>">
+    <div class="form-group mt-2">
+    <button type="submit" class="btn btn-primary mb-5" >Update</button>
     </div>
- </form>
+  </form>
+</div>
 
+    
