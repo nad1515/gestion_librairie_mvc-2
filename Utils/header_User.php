@@ -28,9 +28,8 @@
           </ul> 
    </div>
           
-        <?php
-        echo $_SESSION['nom'].":".$_SESSION['Statut'];
-         ?>
+   <div class="user-badge"><?= $_SESSION['nom']?></div>
+        
     
     <a href="?controller=home&action=deconnexion" class="btn btn-danger m-2 p-2">Deconnexion</a>
    

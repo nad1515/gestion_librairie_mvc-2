@@ -1,4 +1,6 @@
 <div class="container">
+<a href="?controller=fournisseurs&action=ajouter_fournisseur">
+                    <button type="ajouter" class="btn btn-primary mb-5" >Ajouter un livre</button></a>
     <p> <?= isset($search)?'Recherche par '.$search:'' ?></p>
 <table class="table table-bordered" id='table'>
     <thead>

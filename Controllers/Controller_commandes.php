@@ -92,8 +92,31 @@ public function action_update_commande()
 {
     $m=Model::get_model();
     $data=['commandes'=>$m->get_update_commande()];
+    $this->render("all_commandes_admin",$data);
+
+}
+// .............ajouter commande..........; 
+public function action_ajouter_commande()
+{
+    $m=Model::get_model();
+    $data=['Titre_livre'=>$m->get_all_livres(),'Raison_sociale'=>$m->get_all_fournisseurs()];
+    $this->render("ajouter_commande",$data);
+
+}
+//..............valider l'ajout de commande..............
+public function action_valider_ajouter_commande()
+{
+    $m=Model::get_model();
+    $data=['commandes'=>$m->get_valider_ajouter_commande()];
     $this->render("all_commande_admin",$data);
 
 }
-     
+// ..................effacer commande..................
+public function action_delete_commande()
+{
+    $m=Model::get_model();
+    $data=['commandes'=>$m->get_delete_commande()];
+    $this->render("all_commande_admin",$data);
+
+}
 }

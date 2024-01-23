@@ -7,8 +7,8 @@
     $_SESSION['prenom']  = $identification[0]->prenom;
     $_SESSION['age']  = $identification[0]->age;
     $_SESSION['Statut']  = $identification[0]->Statut;
-
-
+    $_SESSION['id']  = $identification[0]->idUtilisateur;
+   
 
 
     

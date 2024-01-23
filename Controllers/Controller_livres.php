@@ -87,6 +87,14 @@ public function action_update_livre()
     $this->render("all_livres_admin",$data);
 
 }
+// ......................Ajouter un livre ...................
+public function action_ajouter_livre()
+{ 
+    // $m=Model::get_model();
+    // $data=['livre'=>$m->get_ajouter_livre()];
+    $this->render("ajouter_livre");
+
+}
    
    
 }

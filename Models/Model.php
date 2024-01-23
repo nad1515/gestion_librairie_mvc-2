@@ -163,6 +163,7 @@ public function get_update_livre()
     }
     return $requete->fetchAll(PDO::FETCH_OBJ);
 }
+// ......................ajouter un livre.............................
 
 
     // ..................Partie Fournisseur.........................
@@ -406,7 +407,11 @@ public function get_login_connexion()
 public function get_all_commandes_admin()
 {
     try {
-     $requete = $this->bd->prepare('SELECT L.Titre_livre, F.Raison_sociale,C.id_commande, C.Date_achat, C.Prix_achat, C.Nbr_exemplaires FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur');
+     $requete = $this->bd->prepare('SELECT L.Titre_livre, F.Raison_sociale,C.id_commande, C.Date_achat, C.Prix_achat, C.Nbr_exemplaires, U.nom 
+     FROM commander C 
+     JOIN livres L ON C.Id_Livre = L.Id_Livre 
+     JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur
+     JOIN utilisateur U ON C.idUtilisateur = U.idUtilisateur');
        
         $requete->execute();
         
@@ -427,11 +432,32 @@ public function get_modifier_commande()
     }
     return $requete->fetchAll(PDO::FETCH_OBJ);
 }
-// .............update sur table commande...............
-public function get_update_commande()
+
+// ..................ajouter commande..................
+
+public function get_valider_ajouter_commande()
+
 {   
+    $idLivre = $_POST['Id_Livre'];
+    $idFournisseur = $_POST['Id_fournisseur'];
+    $nbrExemplaires = $_POST['nbr'];
+    $prixAchat = $_POST['prix'];
+    
     try {
-     $requete = $this->bd->prepare('SELECT L.Titre_livre, F.Raison_sociale, C.Date_achat, C.Prix_achat, C.Nbr_exemplaires FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur WHERE id_commande=:c');
+     $requete = $this->bd->prepare('INSERT INTO commander (id_commande,Id_Livre,Id_fournisseur,Date_achat,Prix_achat,Nbr_exemplaires,idUtilisateur) VALUES(NULL,:l,:f,:d,:p,:n,:idu )');
+       
+        $requete->execute(array(':l'=>$idLivre,':f'=> $idFournisseur,':d'=> date('Y-m-d'),':p'=>  $prixAchat,':n'=> $nbrExemplaires, ':idu'=> $_SESSION['id']));
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+}
+// .............;;..suprime commande(DELETE)......................
+public function get_delete_commande()
+{    $id=$_GET['id'];
+    try {
+     $requete = $this->bd->prepare('DELETE  FROM commander  WHERE id_commande=:c');
        
         $requete->execute(array(':c'=>$id));
         
@@ -440,5 +466,4 @@ public function get_update_commande()
     }
     return $requete->fetchAll(PDO::FETCH_OBJ);
 }
-
 }
