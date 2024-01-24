@@ -121,7 +121,7 @@ public function get_livre_titre_result()
     }
     return $requete->fetchAll(PDO::FETCH_OBJ);
 }
-// ...............all_livres_admin..........
+// ...............all_livres_admin..........reserver pour ADMIN.............
 public function get_all_livres_admin()
 {
     try {
@@ -164,7 +164,21 @@ public function get_update_livre()
     return $requete->fetchAll(PDO::FETCH_OBJ);
 }
 // ......................ajouter un livre.............................
+public function get_valider_ajouter_livre()
 
+{   
+    
+    try {
+     $requete = $this->bd->prepare('INSERT INTO livres (Id_Livre, ISBN,Titre_livre,Theme_livre,Nbr_pages_livre,Format_livre,Nom_auteur,Prenom_auteur,Editeur,Annee_edition,Prix_vente,Langue_livre) VALUES(NULL,:i,:t,:th,:n,:f,:na,pa,e,a,p,l )');
+       
+        $requete->execute(array(':i'=>$_POST['isbn'] ,':i'=>$_POST['titre'],:'i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,
+        ':idu'=> $_SESSION['id']));
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+}
 
     // ..................Partie Fournisseur.........................
     public function get_all_Fournisseurs()
@@ -360,7 +374,7 @@ public function get_update_fournisseur()
          }
          return $requete->fetchAll(PDO::FETCH_OBJ);
      }
-//   ........................commade par editeur..................
+//   ........................commande par editeur..................
  
  public function get_commande_editeur()
  { echo "je suis dans model commande par editeur";

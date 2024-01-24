@@ -89,6 +89,14 @@ public function action_update_fournisseur()
 
     }
     
-    
+    // .............ajouter un fournisseur.............
+    public function action_ajouter_fournisseur()
+{ 
+    // $m=Model::get_model();
+    // $data=['livre'=>$m->get_ajouter_livre()];
+    $this->render("ajouter_fournisseur");
+
+}
+   
     
 }

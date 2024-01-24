@@ -30,10 +30,10 @@
     <label>Editeur: <input type="text" class="form-control" name="editeur" id="editeur" value="" required></label>
     </div>    
     <div class="form-group">
-    <label>Annee_edition:<input type="number" class="form-control " name="annee" id="annee" value="" required></label>
+    <label>Annee_edition:<input type="text" class="form-control " name="annee" id="annee" value="" required></label>
     </div> 
     <div class="form-group">
-    <label for="prix" class="form-label">Prix_vente: <input type="number" class="form-control" name="prix" id="prix" value="" required></label>
+    <label>Prix_vente: <input type="text" class="form-control" name="prix" id="prix" value="" required></label>
     </div> 
 
     <div class="form-group">

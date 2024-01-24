@@ -1,4 +1,4 @@
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+<div class="collapse navbar-collapse " id="navbarSupportedContent">
           <a class="nav-link dropdown-toggle  " href="?controller=livres&action=all_livres" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Livres
           </a>
@@ -25,8 +25,8 @@
             <li><a class="dropdown-item" href="?controller=commandes&action=commande_date">par_date</a></li>
             <li><a class="dropdown-item" href="?controller=commandes&action=commande_fournisseur">par_fournisseur</a></li>
             <li><a class="dropdown-item" href="?controller=commandes&action=commande_editeur">par_editeur</a></li>
-          </ul> 
-   </div>
+          </ul>  
+    </div>
           
    <div class="user-badge"><?= $_SESSION['nom']?></div>
         
