@@ -95,6 +95,21 @@ public function action_ajouter_livre()
     $this->render("ajouter_livre");
 
 }
-   
+public function action_valider_ajouter_livre()
+{ 
+    $m=Model::get_model();
+    $data=['livre'=>$m->get_valider_ajouter_livre()];
+    $this->render("valider_ajouter_livre");
+
+}
+// ....................delete livre...............
+public function action_delete_livre()
+{ 
+    $m=Model::get_model();
+    $data=['livre'=>$m->get_delete_livre()];
+    $this->render("all_livres_admin",$data);
+
+}
+     
    
 }

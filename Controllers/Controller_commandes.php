@@ -108,7 +108,7 @@ public function action_valider_ajouter_commande()
 {
     $m=Model::get_model();
     $data=['commandes'=>$m->get_valider_ajouter_commande()];
-    $this->render("all_commande_admin",$data);
+    $this->render("valider_ajouter_commande",$data);
 
 }
 // ..................effacer commande..................
@@ -116,7 +116,7 @@ public function action_delete_commande()
 {
     $m=Model::get_model();
     $data=['commandes'=>$m->get_delete_commande()];
-    $this->render("all_commande_admin",$data);
+    $this->render("all_commandes_admin",$data);
 
 }
 }

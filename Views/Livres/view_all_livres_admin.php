@@ -17,8 +17,8 @@
         <th class="table-danger">Éditeur</th>
         <th class="table-danger">Année d'édition</th>
         <th class="table-danger">Prix</th>
-        <th class='table-danger'>Langue</th>
-         <th class='table-danger'>Action</th>
+        <th class="table-danger">Langue</th>
+        <th class="table-danger">Action</th>
 
     </thead>
     <?php  foreach($livre as $l ): ?>
@@ -34,6 +34,7 @@
         <td><?=$l->Annee_edition?></td>
         <td><?=$l->Prix_vente?></td>
         <td><?=$l->Langue_livre?></td>
+        
         
    
        <td>

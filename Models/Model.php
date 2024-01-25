@@ -98,7 +98,7 @@ class Model
       }
 //   ..................choix par titre.................
     public function get_livre_titre()
-{   echo "je suis dans le modele";
+{   
     try {
         $requete = $this->bd->prepare('SELECT Titre_livre FROM livres');
         $requete->execute();
@@ -169,10 +169,28 @@ public function get_valider_ajouter_livre()
 {   
     
     try {
-     $requete = $this->bd->prepare('INSERT INTO livres (Id_Livre, ISBN,Titre_livre,Theme_livre,Nbr_pages_livre,Format_livre,Nom_auteur,Prenom_auteur,Editeur,Annee_edition,Prix_vente,Langue_livre) VALUES(NULL,:i,:t,:th,:n,:f,:na,pa,e,a,p,l )');
+     $requete = $this->bd->prepare('INSERT INTO livres (Id_Livre, ISBN,Titre_livre,
+     Theme_livre,Nbr_pages_livre,Format_livre,Nom_auteur,Prenom_auteur,Editeur,
+     Annee_edition,Prix_vente,Langue_livre) 
+     VALUES(NULL,:i,:t,:th,:n,:f,:nm,:pm,:e,:a,:p,:l)');
        
-        $requete->execute(array(':i'=>$_POST['isbn'] ,':i'=>$_POST['titre'],:'i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,':i'=>$_POST['isbn'] ,
-        ':idu'=> $_SESSION['id']));
+     $requete->execute(array(':i'=>$_POST['isbn'] ,':t'=>$_POST['titre'],
+     ':th'=>$_POST['theme'] ,':n'=>$_POST['nbr'] ,':f'=>$_POST['format'] ,
+     ':nm'=>$_POST['nom'] ,':pm'=>$_POST['prenom'] ,':e'=>$_POST['editeur'] ,
+     ':a'=>$_POST['annee'] ,':p'=>$_POST['prix'] ,':l'=>$_POST['langue']));
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+}
+// ........................delete livre...................
+public function get_delete_livre()
+{    $id=$_GET['id'];
+    try {
+     $requete = $this->bd->prepare('DELETE  FROM livres  WHERE Id_Livre=:l');
+       
+        $requete->execute(array(':l'=>$id));
         
     } catch (PDOException $e) {
         die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
@@ -307,6 +325,39 @@ public function get_update_fournisseur()
     }
     return $requete->fetchAll(PDO::FETCH_OBJ);
 }
+// ...........................ajouter un fournisseur.................
+public function get_valider_ajouter_fournisseur()
+
+{   
+    
+    try {
+     $requete = $this->bd->prepare('INSERT INTO fournisseurs (Id_fournisseur, Code_fournisseur, Raison_sociale, Rue_fournisseur,Code_postal,Localite,Pays,Tel_fournisseur,Url_fournisseur,Email_fournisseur,Fax_fournisseur) 
+     VALUES(NULL,:c,:r,:ru,:cp,:l,:p,:t,:u,:e,:fa)');
+       
+     $requete->execute(array(':c'=>$_POST['code'] ,':r'=>$_POST['raison'],
+     ':ru'=>$_POST['rue'] ,':cp'=>$_POST['cp'] ,':l'=>$_POST['localite'] ,
+     ':p'=>$_POST['pays'] ,':t'=>$_POST['tel'] ,':u'=>$_POST['url'] ,
+     ':e'=>$_POST['email'] ,':fa'=>$_POST['fax']));
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+}
+// ...............delete fournisseur.................
+public function get_delete_fournisseur()
+{    $id=$_GET['id'];
+    try {
+     $requete = $this->bd->prepare('DELETE  FROM fournisseurs WHERE Id_fournisseur=:f');
+       
+        $requete->execute(array(':f'=>$id));
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+}
+
 
 // ........................Commandes....................
 

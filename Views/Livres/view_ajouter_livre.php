@@ -40,7 +40,7 @@
     <label for="langue" class="form-label">Langue_livre: <input type="text" class="form-control" name="langue" id="langue" value="" required></label> 
     </div> 
     <div class="form-group">
-    <button type="submit" class="btn btn-primary mb-5" >Update</button>
+    <button type="submit" class="btn btn-primary mb-5" >Ajouter</button>
     </div>
  </form>
  

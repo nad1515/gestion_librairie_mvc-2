@@ -1,6 +1,8 @@
+
+<h1 class="text-center">Modifier la table fournisseur</h1>
 <div class="container">
 <a href="?controller=fournisseurs&action=ajouter_fournisseur">
-                    <button type="ajouter" class="btn btn-primary mb-5" >Ajouter un livre</button></a>
+ <button type="ajouter" class="btn btn-primary mb-5" >Ajouter fournisseur</button></a>
     <p> <?= isset($search)?'Recherche par '.$search:'' ?></p>
 <table class="table table-bordered" id='table'>
     <thead>
@@ -35,7 +37,7 @@
             
                 <a href="?controller=fournisseurs&action=modifier_fournisseur&id=<?=$f->Id_fournisseur?>">
                     <button type="update" class="btn btn-warning btn-sm me-3"><i class="bi bi-pencil-fill"></i></button></a>
-                <a href="?controller=fournisseurs&action=suprimer_fournisseur&id=<?=$f->Id_fournisseur?>">
+                <a href="?controller=fournisseurs&action=delete_fournisseur&id=<?=$f->Id_fournisseur?>">
                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirmation()"><i class="bi bi-trash-fill"></i></button></a>
             </div>
         </td>

@@ -1,12 +1,5 @@
 
-  
-
-<div class="w-75 mx-auto mb-3">  
-     <h1 class= "mt-5 text-center"> Ajouter un fournisseur a la table fournisseurs</h1>
-
-
      
- 
 
 <div class="w-75 mx-auto mb-3">  
      <h1 class= "mt-5 text-center"> ajouiter un fournisseur de la table fournisseurs</h1>
@@ -51,5 +44,5 @@
 </div>
     
 
-</div>
+
 

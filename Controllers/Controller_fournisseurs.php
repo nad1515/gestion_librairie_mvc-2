@@ -92,11 +92,27 @@ public function action_update_fournisseur()
     // .............ajouter un fournisseur.............
     public function action_ajouter_fournisseur()
 { 
-    // $m=Model::get_model();
-    // $data=['livre'=>$m->get_ajouter_livre()];
+    
     $this->render("ajouter_fournisseur");
 
 }
+   
+public function action_valider_ajouter_fournisseur()
+{ echo"je suis dans action";
+     $m=Model::get_model();
+    $data=['fournisseurs'=>$m->get_valider_ajouter_fournisseur()];
+    $this->render("valider_ajouter_fournisseur",$data);
+
+}
+// ................delete fournisseur.............
+public function action_delete_fournisseur()
+{ 
+    $m=Model::get_model();
+    $data=['fournisseurs'=>$m->get_delete_fournisseur()];
+    $this->render("all_fournisseurs_admin",$data);
+
+}
+     
    
     
 }
