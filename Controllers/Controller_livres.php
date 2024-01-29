@@ -99,7 +99,7 @@ public function action_valider_ajouter_livre()
 { 
     $m=Model::get_model();
     $data=['livre'=>$m->get_valider_ajouter_livre()];
-    $this->render("valider_ajouter_livre");
+    $this->render("valider_ajouter_livre",$data);
 
 }
 // ....................delete livre...............

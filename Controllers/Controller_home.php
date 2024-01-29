@@ -23,7 +23,7 @@ class Controller_home extends Controller
     {
 
     $m=Model::get_model();
-    $data = ['identification'=>$m->get_login_connexion($_POST)];
+    $data = ['identification'=>$m->get_login_connexion()];
         $this->render("login_connexion",$data);
         
     }
@@ -32,5 +32,16 @@ class Controller_home extends Controller
     {
         $this->render('deconnexion');
     }
-
+// ...........inscription.............
+public function action_User_inscription()
+{
+    $this->render('User_inscription');
+}
+    public function action_User_inscription_valide()
+{ 
+    $m=Model::get_model();
+    $data = ['utilisateur'=>$m->get_User_inscription_valide()];
+        $this->render("login_connexion",$data);
+        
+    }
 }

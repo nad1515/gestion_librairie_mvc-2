@@ -44,8 +44,12 @@ session_start();
      {  
      ?>
       <!-- je suis  dans la partie decconnexion,  -->
+      <div>
+      <a href="?controller=home&action=User_inscription" class="btn btn-primary m-3 ">Inscription</a>
       
+     
       <a href="?controller=home&action=User_connexion" class="btn btn-danger m-3 ">Connexion</a> 
+      </div> 
     <?php 
   } 
   ?>

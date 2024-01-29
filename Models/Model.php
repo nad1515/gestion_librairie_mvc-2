@@ -30,6 +30,26 @@ class Model
     }
 
 // ----------------------------------PARTIE HOME--------------------------------------------//
+// ...........inscription user......................................................
+public function get_User_inscription_valide()
+
+{    echo "inscriptin reussie";
+    
+    try {
+        $utilisateur="Utilisateur";
+     $requete = $this->bd->prepare('INSERT INTO utilisateur (idUtilisateur, email, nom, prenom, age, Date, MdP, Statut) 
+     VALUES(NULL,:e,:n,:p,:a,:d,:m,:utilisateur)');
+       
+     $requete->execute(array(':e'=>$_POST['email'] ,':n'=>$_POST['nom'],
+     ':p'=>$_POST['prenom'] ,':a'=>$_POST['age'] ,':d'=> date('Y-m-d'),
+     ':m'=>$_POST['mdp'],':utilisateur'=>$utilisateur));
+        
+    } catch (PDOException $e) {
+        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    }
+    return $requete->fetchAll(PDO::FETCH_OBJ);
+   
+}
 
     
 
