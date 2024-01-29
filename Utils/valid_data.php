@@ -2,10 +2,10 @@
 <?php
 function validData($data)
 {
-    $donnee = trim($data);
-    $donnee = stripslashes($data);
-    $donnee = htmlspecialchars($data);
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
 
-    return $donnee;
+    return $data;
 }
 ?>

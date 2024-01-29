@@ -3,6 +3,8 @@
 require_once('Models/Model.php');
 require_once('Controllers/Controller.php');
  require('Utils/header.php');
+ require_once('Utils/valid_data.php');
+
 
 $controllers=['home','livres','fournisseurs','commandes'];
 $controller_default='home';

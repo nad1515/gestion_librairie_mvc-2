@@ -38,7 +38,14 @@ public function action_User_inscription()
     $this->render('User_inscription');
 }
     public function action_User_inscription_valide()
-{ 
+{    
+     var_dump($_POST);
+    $email = validData($_POST['email']);
+    $nom = validData($_POST['nom']);
+    $prenom = validData($_POST['prenom']);
+    $age = validData($_POST['age']);
+    $MdP= validData($_POST['mdp']);
+  
     $m=Model::get_model();
     $data = ['utilisateur'=>$m->get_User_inscription_valide()];
         $this->render("login_connexion",$data);
