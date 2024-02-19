@@ -33,7 +33,7 @@ class Model
 // ...........inscription user......................................................
 public function get_User_inscription_valide()
 
-{    echo "inscriptin reussie";
+{    
     
     try {
         $utilisateur="Utilisateur";
@@ -130,7 +130,7 @@ public function get_User_inscription_valide()
 }
 // ............afiche resulta titre............
 public function get_livre_titre_result()
-{ echo " jesuis dans modele resulta titre";
+{ 
   $choixtitre = $_POST["choixtitre"];
     try {
         $requete = $this->bd->prepare('SELECT * FROM livres WHERE Titre_livre =:t');
@@ -245,7 +245,7 @@ public function get_delete_livre()
     }
 // ...................fournisseur raison sociale resultat............
     public function get_fournisseur_raison_sociale_result()
-    { echo " jesuis dans modele resulta raison sociale";
+    { 
       $choixR = $_POST["choixraisonsociale"];
         try {
         $requete = $this->bd->prepare('SELECT * FROM Fournisseurs WHERE Raison_sociale =:r');
@@ -270,7 +270,7 @@ public function get_delete_livre()
     }
 // ...................fournisseur localite............
     public function get_fournisseur_localite_result()
-    { echo "je suis dans model fournisseur localite";
+    { 
       $choixl = $_POST["choixlocalite"];
         try {
         $requete = $this->bd->prepare('SELECT * FROM Fournisseurs WHERE localite =:l');
@@ -295,7 +295,7 @@ public function get_fournisseur_pays()
     }
 // ...................fournisseur pays............
     public function get_fournisseur_pays_result()
-    { echo "je suis dans model fournisseur pays";
+    { 
       $choixp = $_POST["choixpays"];
         try {
         $requete = $this->bd->prepare('SELECT * FROM Fournisseurs WHERE Pays =:p');
@@ -333,7 +333,7 @@ public function get_modifier_fournisseur()
 }
 // ...............update fournisseur................
 public function get_update_fournisseur()
-{ echo "bonjour ca marche j'arrive a faire update";
+{ 
      try { 
         
         $requete = $this->bd->prepare("UPDATE Fournisseurs SET Code_fournisseur=:c, Raison_sociale=:r, Rue_fournisseur=:ru, Code_postal=:cp, Localite=:l, Pays=:p, Tel_fournisseur=:t, Url_fournisseur=:u, Email_fournisseur=:e, Fax_fournisseur=:f WHERE Id_fournisseur = :id" );
@@ -395,7 +395,7 @@ public function get_delete_fournisseur()
     }
     // ............;;commande par date...................
     public function get_commande_date()
-    { echo "je suis dans model commande par date achat";
+    { 
         try {
          $requete = $this->bd->prepare('SELECT DISTINCT Date_achat FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur');
            
@@ -408,7 +408,7 @@ public function get_delete_fournisseur()
     }
     // ................commande date resultat...............
     public function get_commande_date_result()
-    { echo "je suis dans model";
+    { 
       $choixd = $_POST["choixdate"];
         try {
         $requete = $this->bd->prepare('SELECT * FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur WHERE Date_achat =:d');
@@ -421,7 +421,7 @@ public function get_delete_fournisseur()
     }
      // ............;;commande par fournisseur...................
      public function get_commande_fournisseur()
-     { echo "je suis dans model commande par fournisseur";
+     { 
          try {
           $requete = $this->bd->prepare('SELECT DISTINCT F.Raison_sociale FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur');
             
@@ -434,7 +434,7 @@ public function get_delete_fournisseur()
      }
      // ................commande fournisseur resultat...............
      public function get_commande_fournisseur_result()
-     { echo "";
+     { 
        $choixf = $_POST["choixfournisseur"];
          try {
          $requete = $this->bd->prepare('SELECT * FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur WHERE Raison_sociale =:f');
@@ -448,7 +448,7 @@ public function get_delete_fournisseur()
 //   ........................commande par editeur..................
  
  public function get_commande_editeur()
- { echo "je suis dans model commande par editeur";
+ { 
      try {
       $requete = $this->bd->prepare('SELECT DISTINCT Editeur FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur');
         
